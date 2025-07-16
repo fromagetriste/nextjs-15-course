@@ -33,7 +33,14 @@ export default function Login() {
           <a
             href="https://github.com/fromagetriste/nextjs-15-course"
             target="_blank"
-          ></a>
+          >
+            <img
+              src="https://avatars.githubusercontent.com/u/62357930?v=4"
+              alt="profile picture"
+            />
+            <h6>@fromagetriste</h6>
+            <i className="fa-brands fa-github"></i>
+          </a>
         </footer>
       </div>
     </>

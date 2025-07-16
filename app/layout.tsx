@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./fanta.css";
+import "./globals.css";
+import Head from "./head";
 
 export const metadata: Metadata = {
   title: "MDNOTES | Easy Notes Taking",
@@ -13,6 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head />
       <body>
         <div id="app"> {children}</div>
         <div id="portal"></div>
