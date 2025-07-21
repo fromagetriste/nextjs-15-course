@@ -1,5 +1,5 @@
 export default function SideNav() {
-  const notes = ["hello", "world"];
+  const notes = ["hello", "world", "hello", "world"];
   const showNav: boolean = true;
   return (
     <section className={"nav " + (showNav ? "" : "hidden-nav")}>
@@ -17,9 +17,12 @@ export default function SideNav() {
         ) : (
           notes.map((note, index) => {
             return (
-              <button key={index} className="card-button-secondary">
+              <button key={index} className="card-button-secondary list-button">
                 <p>{note}</p>
                 <small>DATETIME</small>
+                <div>
+                  <i className="fa-solid fa-trash-can"></i>
+                </div>
                 DELETE BUTTON ICON
               </button>
             );
