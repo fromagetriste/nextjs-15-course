@@ -1,8 +1,13 @@
-type TopNavProps = {
-  isViewer: boolean;
-};
+"use client";
 
-export default function TopNav({ isViewer }: TopNavProps) {
+interface TopNavProps {
+  isViewer: boolean;
+  handleToggleViewer: () => void;
+}
+
+export default function TopNav(props: TopNavProps) {
+  const { isViewer, handleToggleViewer } = props;
+
   return (
     <>
       <div className="notes-btn">
@@ -13,7 +18,7 @@ export default function TopNav({ isViewer }: TopNavProps) {
           <h6>Save</h6>
           <i className="fa-solid fa-floppy-disk"></i>
         </button>
-        <button className="card-button-secondary">
+        <button onClick={handleToggleViewer} className="card-button-secondary">
           {isViewer ? (
             <>
               {" "}

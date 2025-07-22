@@ -1,15 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import Editor from "../components/Editor";
 import MDX from "../components/MDX";
 import SideNav from "../components/SideNav";
 
 export default function NotesPage() {
-  const isViewer: boolean = true;
+  const [isViewer, setIsViewer] = useState<boolean>(true);
+
+  const handleToggleViewer = () => {
+    setIsViewer(!isViewer);
+  };
 
   return (
     <main id="notes">
       <SideNav />
-      {!isViewer && <Editor isViewer={isViewer} />}
-      {isViewer && <MDX isViewer={isViewer} />}
+      {!isViewer && (
+        <Editor isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
+      )}
+      {isViewer && (
+        <MDX isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
+      )}
     </main>
   );
 }
