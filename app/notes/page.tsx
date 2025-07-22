@@ -7,6 +7,7 @@ import SideNav from "../components/SideNav";
 
 export default function NotesPage() {
   const [isViewer, setIsViewer] = useState<boolean>(true);
+  const [text, setText] = useState<string>("");
 
   const handleToggleViewer = () => {
     setIsViewer(!isViewer);
