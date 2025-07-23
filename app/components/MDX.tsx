@@ -11,7 +11,11 @@ type MDXProps = {
 export default function MDX({ isViewer, handleToggleViewer, text }: MDXProps) {
   return (
     <section className="mdx-container">
-      <TopNav isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
+      <TopNav
+        isViewer={isViewer}
+        handleToggleViewer={handleToggleViewer}
+        handleToggleMenu={handleToggleMenu}
+      />
       <article>
         <Markdown>{text.trim()}</Markdown>
       </article>
