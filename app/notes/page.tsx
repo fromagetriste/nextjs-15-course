@@ -8,19 +8,35 @@ import SideNav from "../components/SideNav";
 export default function NotesPage() {
   const [isViewer, setIsViewer] = useState<boolean>(true);
   const [text, setText] = useState<string>("");
+  const [showNav, setShowNav] = useState<boolean>(false);
 
   const handleToggleViewer = () => {
     setIsViewer(!isViewer);
   };
 
+  const handleToggleMenu = () => {
+    setShowNav(!showNav)
+  }
+
   return (
     <main id="notes">
-      <SideNav />
+      <SideNav showNav={showNav} setShowNav={setShowNav} />
       {!isViewer && (
-        <Editor isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
+        <Editor
+          isViewer={isViewer}
+          handleToggleViewer={handleToggleViewer}
+          text={text}
+          setText={setText}
+          handleToggleMenu={handleToggleMenu}
+        />
       )}
       {isViewer && (
-        <MDX isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
+        <MDX
+          text={text}
+          isViewer={isViewer}
+          handleToggleViewer={handleToggleViewer}
+          handleToggleMenu={handleToggleMenu}
+        />
       )}
     </main>
   );

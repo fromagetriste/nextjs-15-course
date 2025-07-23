@@ -4,20 +4,16 @@ import TopNav from "./TopNav";
 type MDXProps = {
   isViewer: boolean;
   handleToggleViewer: () => void;
+  text: string;
+  handleToggleMenu: (value: boolean) => void;
 };
 
-export default function MDX({ isViewer, handleToggleViewer }: MDXProps) {
-  const md = `
-  # This is a header 1
-  ## This is a header 2
-
-  Hello World
-  [click me] (https://www.google.fr/)`;
+export default function MDX({ isViewer, handleToggleViewer, text }: MDXProps) {
   return (
     <section className="mdx-container">
       <TopNav isViewer={isViewer} handleToggleViewer={handleToggleViewer} />
       <article>
-        <Markdown>{md}</Markdown>
+        <Markdown>{text.trim()}</Markdown>
       </article>
     </section>
   );

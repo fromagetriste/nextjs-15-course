@@ -1,17 +1,29 @@
 "use client";
 
+import { useState } from "react";
+
 interface TopNavProps {
   isViewer: boolean;
   handleToggleViewer: () => void;
+  handleToggleMenu: (value: boolean) => void;
 }
 
 export default function TopNav(props: TopNavProps) {
-  const { isViewer, handleToggleViewer } = props;
+  const { isViewer, handleToggleViewer, handleToggleMenu } = props;
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => {
+      const newState = !prev;
+      handleToggleMenu(newState); // Send to parent
+      return newState;
+    });
+  };
 
   return (
     <>
       <div className="notes-btn">
-        <button className="card-button-primary menu">
+        <button onClick={toggleMenu} className="card-button-primary menu">
           <i className="fa-solid fa-bars"></i>
         </button>
         <button>
